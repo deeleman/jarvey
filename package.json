@@ -1,0 +1,45 @@
+{
+  "name": "Jarvey",
+  "version": "0.1.0",
+  "description": "Jarvey is a simple-to-use multivariate testing module for Node.js",
+  "main": "./lib/main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deeleman/jarvey.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deeleman/jarvey/issues"
+  },
+  "keywords": [
+    "multivariate",
+    "multivariate testing",
+    "a/b",
+    "testing",
+    "test",
+    "jarvey",
+    "ab testing",
+    "website optimizer",
+    "web analytics",
+    "web optimizer",
+    "multivariate analysis",
+    "test ab",
+    "web testing",
+    "multivariate data analysis"
+  ],
+  "dependencies" : {
+  
+  },
+  "devDependencies": {
+    "mocha" :  "1.6.x"
+  },
+  "author": "Pablo Deeleman <deeleman@gmail.com> (https://github.com/deeleman)",
+  "licenses" : [ 
+    { 
+        "type" : "BSD", 
+        "url" : "https://github.com/deeleman/jarvey/raw/master/LICENSE"
+    }
+  ]
+}
