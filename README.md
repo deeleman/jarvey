@@ -5,7 +5,7 @@ Still in an early stage of development, Jarvey aims to be a simple-to-use but po
 
 ## Documentation ##
 
-At this moment Jarvey is still in development. Installation instructions and a detailed tutorial about its API and functionality including a complete suite of tests will be available soon.
+At this moment Jarvey is still in development. Installation instructions and a detailed tutorial covering extensively its API and functionality will be available soon.
 
 ----------
 # License - "BSD License" #
