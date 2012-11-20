@@ -21,7 +21,7 @@ describe('Jarvey', function() {
             }, Error)
         });
 
-        it('#createSuite(name, callback) should return a fresh populated suite through the callback payload', function() {
+        it('#createSuite(name, callback) should return a fresh populated suite', function() {
             var suite = jarvey.createSuite('Suite test');
             assert(suite.name);
             assert.equal(suite.tests.length, 0);
@@ -40,10 +40,10 @@ describe('Jarvey', function() {
             assert.equal(actual.name, 'Fetching Suite test');
         });
         
-        it('#deleteSuite(name, callback) should remove a previously existing suite and return the just removed suite -if any- in the callback payload', function() {         
+        it('#deleteSuite(name, callback) should remove a previously existing suite and return the just removed suite, if any', function() {         
             // "Fetching Suite test" created in previous test will be leveraged herein
-            var removed = jarvey.deleteSuite('Fetching Suite test'), nullSuite = jarvey.getSuite('Fetching Suite test');
-            assert.equal(removed.name, 'Fetching Suite test');
+            var deletedSuite = jarvey.deleteSuite('Fetching Suite test'), nullSuite = jarvey.getSuite('Fetching Suite test');
+            assert.equal(deletedSuite.name, 'Fetching Suite test');
             assert(!nullSuite);
         });
     });
@@ -54,9 +54,9 @@ describe('Jarvey', function() {
 /**
  * // Full API example
  *
- var jarvey = require('jarvey');
+ var jarvey = require('jarvey'), suite, testsCollection, test;
 
- jarvey.createSuite('Layout test', function(suite) {
+     suite = jarvey.createSuite('Layout test');
     
      suite.control('Layout A');
      suite.test('Layout B');
@@ -64,18 +64,20 @@ describe('Jarvey', function() {
     
      suite.limitTestsTo(2500);
      suite.expiresOn(expiratonDate);
- });
 
- jarvey.get('Layout test', function(suite) {
-     var test, testsCollection;    
+
+     suite = jarvey.getSuite('Layout test');     
      
      suite.test('Layout D');
-    
-     test = suite.tryOut(); // Should be either 'Layout A', 'Layout B', 'Layout C', 'Layout D'
-     testsCollection = suite.tests; <---- Refactor into method?
+     testsCollection = suite.tests; 
+     
+     test = suite.tryOut(function(err, data) {
+         // 'data' should be either 'Layout A', 'Layout B', 'Layout C', 'Layout D'
+     }); 
     
      suite.cancel();
      suite.resume(expiratonDate);
- });
+     
+     deletedSuite = jarvey.deleteSuite('Layout test'); 
 
  */
